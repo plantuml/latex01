@@ -5,15 +5,11 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: texlive/texlive:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Install LaTeX and required packages
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-xetex texlive-latex-extra
 
       - name: Create output directory
         run: mkdir -p output
