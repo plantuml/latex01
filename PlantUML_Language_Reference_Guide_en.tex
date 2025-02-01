@@ -1,0 +1,132 @@
+\documentclass{article}
+
+\usepackage{courier}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{fontspec} 
+\usepackage{polyglossia}
+\usepackage{lastpage}
+\usepackage{ifthen}
+
+\usepackage[
+    paper=a4paper,
+    tmargin=2.5cm,
+    bmargin=2.5cm,
+    lmargin=2.5cm,
+    rmargin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{bookmark}
+\usepackage{parskip}
+
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun} 
+
+\def\versionplantuml{1.2025.0}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	pdfsubject={Drawing UML with PlantUML},
+	pdftitle={PlantUML Language Reference Guide},
+	pdfkeywords={UML}
+}
+
+\rfoot{\thepage\ / \pageref{LastPage}}
+\lfoot{\includegraphics[width=7mm]{Logo_PlantUML.pdf}\hspace{3mm}\textit{PlantUML Language Reference Guide (\versionplantuml)}}
+\cfoot{}
+
+\lstset{basicstyle=\footnotesize\ttfamily}
+
+\author{PlantUML}
+\title{Drawing UML with PlantUML}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+		\Huge{Drawing UML with PlantUML}
+		\vskip 5mm
+		\includegraphics[width=30mm]{Logo_PlantUML.pdf}
+		\vskip 5mm
+		\Large{PlantUML Language Reference Guide}
+		\vskip 1mm
+		\large{(Version \versionplantuml)}
+	\end{center}
+
+	\vskip 2cm
+\textbf{PlantUML} is a component that allows to quickly write :
+
+
+\begin{itemize}
+\item Sequence diagram
+\item Usecase diagram
+\item Class diagram
+\item Object diagram
+\item Activity diagram
+\item Component diagram
+\item Deployment diagram
+\item State diagram
+\item Timing diagram
+\end{itemize}
+
+
+The following non-UML diagrams are also supported:
+
+\begin{itemize}
+\item JSON Data
+\item YAML Data
+\item Network diagram (nwdiag)
+\item Wireframe graphical interface
+\item Archimate diagram
+\item Specification and Description Language (SDL)
+\item Ditaa diagram
+\item Gantt diagram
+\item MindMap diagram 
+\item Work Breakdown Structure diagram 
+\item Mathematic with AsciiMath or JLaTeXMath notation
+\item Entity Relationship diagram
+\end{itemize}
+
+Diagrams are defined using a simple and intuitive language.	
+\end{titlepage}
+
+
+%\include{sequence-diagram}
+%\include{use-case-diagram}
+%\include{class-diagram}
+%\include{object-diagram}
+%\include{activity-diagram-legacy}
+%\include{activity-diagram-beta}
+%\include{component-diagram}
+%\include{deployment-diagram}
+%\include{state-diagram}
+%\include{timing-diagram}
+
+%\include{json}
+%\include{yaml}
+%\include{nwdiag}
+%\include{salt}
+%\include{archimate-diagram}
+%\include{gantt-diagram}
+%\include{mindmap-diagram}
+%\include{wbs-diagram}
+%\include{ascii-math}
+%\include{ie-diagram}
+%\include{commons}
+%\include{creole}
+%\include{sprite}
+%\include{skinparam}
+%\include{preprocessing}
+%\include{unicode}
+%\include{stdlib}
+
+\cleardoublepage
+\pdfbookmark{\contentsname}{toc}
+\tableofcontents
+
+\end{document}
