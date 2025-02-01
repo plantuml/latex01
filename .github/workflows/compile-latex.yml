@@ -13,3 +13,9 @@ jobs:
 
       - name: Compile LaTeX document
         run: xelatex -interaction=nonstopmode -output-directory=output hello.tex
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-pdf
+          path: output/main.pdf
