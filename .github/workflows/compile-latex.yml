@@ -5,17 +5,26 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: texlive/texlive:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install LaTeX and required packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-latex-extra
+
+      - name: Create output directory
+        run: mkdir -p output
+
       - name: Compile LaTeX document
-        run: xelatex -interaction=nonstopmode -output-directory=output hello.tex
+        run: |
+          xelatex -interaction=nonstopmode -output-directory=output hello.tex
+          xelatex -interaction=nonstopmode -output-directory=output hello.tex
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: compiled-pdf
-          path: output/main.pdf
+          path: output/hello.pdf
