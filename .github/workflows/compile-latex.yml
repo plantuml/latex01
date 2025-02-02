@@ -17,14 +17,16 @@ jobs:
       - name: Compile LaTeX document
         run: |
           cd en
-          xelatex -interaction=nonstopmode -output-directory=output PlantUML_Language_Reference_Guide_en.tex
-          xelatex -interaction=nonstopmode -output-directory=output PlantUML_Language_Reference_Guide_en.tex
+          xelatex --enable-installer -interaction=nonstopmode -output-directory=output PlantUML_Language_Reference_Guide_en.tex
+          xelatex --enable-installer -interaction=nonstopmode -output-directory=output PlantUML_Language_Reference_Guide_en.tex
 
       - name: Upload PDF artifact
+        id: upload_pdf
         uses: actions/upload-artifact@v4
         with:
           name: PlantUML_Language_Reference_Guide_en-pdf
           path: en/output/PlantUML_Language_Reference_Guide_en.pdf
 
       - name: Add artifact link to job summary
-        run: echo "### ✅ [Download PDF](./artifacts/PlantUML_Language_Reference_Guide_en-pdf)" >> $GITHUB_STEP_SUMMARY
+        run: |
+          echo "### 📄 [Download PDF](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
