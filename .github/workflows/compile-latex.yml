@@ -12,10 +12,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create output directory
-        run: mkdir -p output
+        run: mkdir -p en/output
 
       - name: Compile LaTeX document
         run: |
+          cd en
           xelatex -interaction=nonstopmode -output-directory=output PlantUML_Language_Reference_Guide_en.tex
           xelatex -interaction=nonstopmode -output-directory=output PlantUML_Language_Reference_Guide_en.tex
 
@@ -23,4 +24,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PlantUML_Language_Reference_Guide_en-pdf
-          path: output/PlantUML_Language_Reference_Guide_en.pdf
+          path: en/output/PlantUML_Language_Reference_Guide_en.pdf
