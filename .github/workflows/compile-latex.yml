@@ -14,6 +14,9 @@ jobs:
       - name: Create output directory
         run: mkdir -p en/output
 
+      - name: Install jq
+        run: apt-get update && apt-get install -y jq
+
       - name: Compile LaTeX document
         run: |
           cd en
