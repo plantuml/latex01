@@ -27,6 +27,17 @@ jobs:
           name: PlantUML_Language_Reference_Guide_en-pdf
           path: en/output/PlantUML_Language_Reference_Guide_en.pdf
 
+      - name: Get artifact ID via GitHub API
+        id: get_artifact
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ARTIFACT_ID=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+            https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts \
+            | jq -r '.artifacts[] | select(.name=="PlantUML_Language_Reference_Guide_en-pdf") | .id')
+
+          echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_OUTPUT
+
       - name: Add artifact link to job summary
         run: |
-          echo "### 📄 [Download PDF](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+          echo "### 📄 [Download PDF](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.get_artifact.outputs.artifact_id }})" >> $GITHUB_STEP_SUMMARY
