@@ -25,3 +25,6 @@ jobs:
         with:
           name: PlantUML_Language_Reference_Guide_en-pdf
           path: en/output/PlantUML_Language_Reference_Guide_en.pdf
+
+      - name: Add artifact link to job summary
+        run: echo "### ✅ [Download PDF](./artifacts/PlantUML_Language_Reference_Guide_en-pdf)" >> $GITHUB_STEP_SUMMARY
